@@ -21,3 +21,11 @@ export interface IUserProduct {
   product: IProduct,
   count: number,
 }
+
+export interface IUserProduct2 {
+  id: number,
+  user: IUser
+  product: IProduct,
+  count: number,
+}
+

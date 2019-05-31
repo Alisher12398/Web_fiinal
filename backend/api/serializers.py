@@ -34,6 +34,7 @@ class ProductModelSerializer(serializers.ModelSerializer):
 class UserProductSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     user = UserSerializer(read_only=True)
+    product = ProductModelSerializer(read_only=True)
     count = serializers.IntegerField(required=True)
 
     def create(self, validated_data):

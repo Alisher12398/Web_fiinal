@@ -13,6 +13,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { UserProductsListComponent } from './user-products-list/user-products-list.component';
+import { MainComponent } from './main/main.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { UserProductsListComponent } from './user-products-list/user-products-li
     RegisterComponent,
     ProductsListComponent,
     UserProductsListComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Product
+from api.models import Product, UserProduct
 from auth_.serializers import UserSerializer
 
 
@@ -29,3 +29,20 @@ class ProductModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
+
+
+class UserProductSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    user = UserSerializer(read_only=True)
+    count = serializers.IntegerField(required=True)
+
+    def create(self, validated_data):
+        userProduct = UserProduct(**validated_data)
+        userProduct.save()
+        return userProduct
+
+    def update(self, instance, validated_data):
+        instance.product = validated_data.get('product', instance.name)
+        instance.count = validated_data.get('count',instance.phone)
+        instance.save()
+        return instance

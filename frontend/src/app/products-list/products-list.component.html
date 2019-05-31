@@ -15,7 +15,11 @@
           <td>{{product.price}}</td>
           <td>{{product.quantity}}</td>
           <td>
-            <a routerLink="/contacts/{{product.id}}/">Update/Delete</a>
+<!--            <input type="text" class="form-control">-->
+            <button type="button" class="btn btn-warning btn-sm" (click)="addProduct(product.name)">Add 1</button>
+<!--            <a routerLink="/contacts/{{product.id}}/">Add 1</a>-->
+<!--            <a routerLink="/contacts/{{product.id}}/">Add 5</a>-->
+<!--            <a routerLink="/contacts/{{product.id}}/">Add 10</a>-->
           </td>
         </tr>
       </table>

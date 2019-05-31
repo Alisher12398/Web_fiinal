@@ -1,7 +1,10 @@
+from django.views.decorators.csrf import \
+    csrf_exempt
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 from api.models import UserProduct, Product
+from django.http import JsonResponse
 from api.serializers import UserSerializer, UserProductSerializer, ProductSerializer
 
 
@@ -37,3 +40,16 @@ def user_products_detail(request, pk):
     elif request.method == 'DELETE':
         userProducts.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@csrf_exempt
+@api_view(['PUT'])
+def user_products_detail2(request, name):
+    #obj2 = Data.objects.get(id_group = id_group, id_user=id_user)
+    user2 = request.user
+    product2 = Product.objects.get(name = name)
+    count2 = UserProduct.objects.for_user(request.user).get(product=product2).count
+    count3 = count2 + 1
+    obj = UserProduct.objects.for_user(request.user).filter(product=product2).update(count=count3)
+    return JsonResponse(status=status.HTTP_204_NO_CONTENT)
+

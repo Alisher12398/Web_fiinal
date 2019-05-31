@@ -7,5 +7,7 @@ urlpatterns = [
     path('products/<int:pk>/', gcbv.ProductDetail.as_view()),
 
     path('user_products/', fbv.user_products),
-    path('user_products/<int:pk>/', fbv.user_products_detail)
+    path('user_products/<int:pk>/', fbv.user_products_detail),
+
+    path('user_products/<str:name>/', fbv.user_products_detail2)
 ]

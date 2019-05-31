@@ -11,5 +11,6 @@
       </div>
       <button type="submit" class="btn btn-primary" (click)="register()">Submit</button>
     </div>
+    <h2><a *ngIf="auth.isAuthenticated()" routerLink="/contacts" class="nav-link">Open Products</a></h2>
   </ng-container>
 </app-base>

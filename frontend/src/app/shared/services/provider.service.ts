@@ -31,7 +31,13 @@ export class ProviderService extends MainService {
     return this.get(`http://localhost:8000/api/user_products/${id}/`, {});
   }
 
+  updateUserProducts(name: string): Promise<IUserProduct> {
+    //public product : IProduct =
+    return this.put(`http://localhost:8000/api/user_products/${name}/`, {
+      count: 100
+    });
 
+  }
   // createContact(name: any, phone: any): Promise<IContact> {
   //   return this.post('http://localhost:8000/api/contacts/', {
   //     name: name,

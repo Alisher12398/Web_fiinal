@@ -3,6 +3,7 @@ import { ProviderService } from '../shared/services/provider.service';
 import { IProduct } from '../shared/models';
 import { Location } from '@angular/common';
 import { AuthService } from '../shared/services/auth.service';
+import { UserProductsListComponent} from '../user-products-list/user-products-list.component';
 
 @Component({
   selector: 'app-products-list',
@@ -14,9 +15,11 @@ export class ProductsListComponent implements OnInit {
 
   public products: IProduct[] = [];
 
-  public productName: string = "";
-  public productPrice: number = 0;
-  public productQuantity: number = 0;
+  // public productName: string = "";
+  // public productPrice: number = 0;
+  // public productQuantity: number = 0;
+
+  public inputCountProducts: number = 0;
 
   constructor(
     private provider: ProviderService,
@@ -30,6 +33,11 @@ export class ProductsListComponent implements OnInit {
         this.products = res;
       })
     }
+  }
+
+  addProduct(name : string){
+    this.provider.updateUserProducts(name).then(res => {
+    })
   }
 
 }

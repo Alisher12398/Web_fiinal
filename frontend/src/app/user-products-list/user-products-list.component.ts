@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { AuthService } from '../shared/services/auth.service';
 
 @Component({
-  selector: 'app-products-list',
+  selector: 'app-user-products-list',
   templateUrl: './user-products-list.component.html',
   styleUrls: ['./user-products-list.component.css']
 })

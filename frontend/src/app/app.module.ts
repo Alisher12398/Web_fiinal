@@ -11,12 +11,16 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './AuthInterceptor';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { ProductsListComponent } from './products-list/products-list.component';
+import { UserProductsListComponent } from './user-products-list/user-products-list.component';
 @NgModule({
   declarations: [
     AppComponent,
     BaseComponent,
     LoginComponent,
     RegisterComponent,
+    ProductsListComponent,
+    UserProductsListComponent,
   ],
   imports: [
     BrowserModule,

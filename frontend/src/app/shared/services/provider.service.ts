@@ -1,7 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
-//import {IContact, IAuthResponse, IContactNew,} from '../models';
+import {IProduct, IAuthResponse, IUserProduct,} from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +13,25 @@ export class ProviderService extends MainService {
   constructor(http: HttpClient) {
     super(http);
   }
-  //
-  // getTaskLists(): Promise<IContact[]> {
-  //   return this.get('http://localhost:8000/api/contacts/', {});
-  // }
-  //
-  // getTaskListDetail(id: number): Promise<IContact> {
-  //   return this.get(`http://localhost:8000/api/contacts/${id}/`, {});
-  // }
-  //
+
+
+  getProducts(): Promise<IProduct[]> {
+    return this.get('http://localhost:8000/api/products/', {});
+  }
+
+  getProductDetail(id: number): Promise<IProduct> {
+    return this.get(`http://localhost:8000/api/products/${id}/`, {});
+  }
+
+  getUserProducts(): Promise<IUserProduct[]> {
+    return this.get('http://localhost:8000/api/user_products/', {});
+  }
+
+  getUserProductDetail(id: number): Promise<IUserProduct> {
+    return this.get(`http://localhost:8000/api/user_products/${id}/`, {});
+  }
+
+
   // createContact(name: any, phone: any): Promise<IContact> {
   //   return this.post('http://localhost:8000/api/contacts/', {
   //     name: name,

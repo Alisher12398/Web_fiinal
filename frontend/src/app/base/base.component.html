@@ -1,0 +1,38 @@
+<style>
+  td a{
+    color:white;
+  }
+</style>
+<h4>If you click to "Log out" and no reaction, please open browser console and type:</h4>
+<h4>localStorage.clear()</h4>
+<nav class="navbar navbar-dark bg-dark" style="height:200px">
+  <a routerLink="/" class="navbar-brand ml-auto">Final Khalykbayev Alisher</a>
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item" *ngIf="auth.isAuthenticated()">
+    </li>
+  </ul>
+  <ul class="navbar-nav mr-auto pull-right">
+    <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+      <a routerLink="/login" class="nav-link"> Log In </a>
+    </li>
+    <li class="nav-item" *ngIf="auth.isAuthenticated()">
+      <a class="nav-link" (click)="logout()"> Log Out </a>
+    </li>
+    <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+      <a routerLink="/register" class="nav-link"> Register </a>
+    </li>
+  </ul>
+
+</nav>
+
+<br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="container col-md-6">
+      <h2><a *ngIf="auth.isAuthenticated()" routerLink="/contacts" class="nav-link">Open Contacts</a></h2>
+      <ng-content *ngIf="auth.isAuthenticated()" select="[body]"></ng-content>
+      <ng-content *ngIf="!auth.isAuthenticated()" select="[authforms]"></ng-content>
+    </div>
+
+  </div>
+</div>
